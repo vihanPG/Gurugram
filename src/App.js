@@ -1,25 +1,39 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter } from 'react-router-dom';
+import React, { useContext } from 'react';
+import { AuthContext } from "./context/authContext";
+import MyAdmin from './admin/Admin'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+import ClientApp from './client/MainClient';
+import Login from './common/Login';
+
+
+const App = () => {
+  const { currentUser, isAdmin } = useContext(AuthContext);
+
+  console.log("app isAdmin  " + isAdmin );
+  const Layout = ({ children }) => (
+    <div className="">
+      <div >
+        {children}
+      </div>
     </div>
   );
-}
+
+  const renderComponent = () => {
+    if (!currentUser) {
+      return <Login />;
+    } else if (isAdmin) { 
+      return <Layout><MyAdmin /></Layout>;
+    } else {
+      return <Layout><ClientApp /></Layout>;
+    }
+  };
+  
+  return (
+    <BrowserRouter>
+      {renderComponent()}
+    </BrowserRouter>
+  );
+};
 
 export default App;
