@@ -2,7 +2,7 @@ import { BrowserRouter } from 'react-router-dom';
 import React, { useContext } from 'react';
 import { AuthContext } from "./context/authContext";
 import MyAdmin from './admin/Admin'
-
+import PgApp from './common/PgApp';
 import ClientApp from './client/MainClient';
 import Login from './common/Login';
 
@@ -21,7 +21,8 @@ const App = () => {
 
   const renderComponent = () => {
     if (!currentUser) {
-      return <Login />;
+      // return <Login />;
+      return <PgApp />;
     } else if (isAdmin) { 
       return <Layout><MyAdmin /></Layout>;
     } else {
