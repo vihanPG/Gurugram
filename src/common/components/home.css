@@ -1,0 +1,19 @@
+/* home.css */
+.home {
+    position: relative;
+    top: -56px;
+    z-index: -1;
+    background-color: #ffc0cb; /* Pink background color */
+}
+
+.home .container-fluid {
+    padding: 0; /* Remove default padding */
+}
+
+.home img {
+    display: block; /* Ensure the image is displayed as a block element */
+    max-width: 100%; /* Make sure the image doesn't exceed its container's width */
+    height: auto; /* Maintain aspect ratio */
+    margin: 0 auto; /* Center the image horizontally */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
