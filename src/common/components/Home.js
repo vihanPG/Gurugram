@@ -1,12 +1,17 @@
 import React from 'react';
+import home_img from '../images/home_img.jpg.jpeg';
+import './home.css';
 
 const Home = () => {
   return (
     <div className="home">
-      <h2>Welcome to Our Luxury Home Rental Service</h2>
-      <p>Experience the ultimate in luxury living with our exclusive collection of rental homes.</p>
-      <p>From spacious estates to cozy retreats, we have the perfect home for every occasion.</p>
-      <p>Explore our website to discover our offerings and start planning your dream getaway today!</p>
+      <div className="container-fluid">
+        <div className="row">
+          <div className="col-md-12">
+            <img src={home_img} alt="My Image" />
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
